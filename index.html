@@ -35,15 +35,18 @@
       <nav class="menu-main">
         <a href="index.html" class="active">Profil</a>
         <a href="data.html">Data</a>
-
-        <!-- Main-Menu -->
+        <!-- For-Submenu -->
         <input type="checkbox" id="submenu-toggle">
         <label for="submenu-toggle" class="submenu-btn">Tampilan ▸</label>
         <!-- Sub-Menu -->
         <div class="menu-sub">
           <label for="submenu-toggle" class="back-btn">◂ Back</label>
-          <a href="#" class="active mode-light">Terang</a>
-          <a href="#" class="mode-dark">Gelap</a>
+          <!-- Display-Light -->
+          <input type="radio" name="theme" id="light-display" checked>
+          <label for="light-display" class="mode-light">Terang</label>
+          <!-- Display-Dark -->
+          <input type="radio" name="theme" id="dark-display">
+          <label for="dark-display" class="mode-dark">Gelap</label>
         </div>
 
         <!-- Display-Theme -->
@@ -74,7 +77,4 @@
     Website ini dibuat sebagai media perkenalan sederhana.
   </footer>
 </body>
-
 </html>
-
-
