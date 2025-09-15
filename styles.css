@@ -63,9 +63,12 @@ header {
 }
 
 /* Sembunyikan checkbox hack dan submenu di desktop */
-#menu-toggle, #theme-toggle, #submenu-toggle, .menu-sub, .submenu-btn, .back-btn {
+input[type="checkbox"],
+input[type="radio"],
+.menu-sub, .submenu-btn, .back-btn {
   display: none;
 }
+
 .theme-icon {
     display: inline-block;
     cursor: pointer;
@@ -148,7 +151,9 @@ main {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-.photo {text-align: center;}
+.photo {
+  text-align: center;
+}
 .photo img {
   width: 150px;
   border-radius: 8px;
@@ -189,6 +194,7 @@ footer {
   padding: 1rem;
   box-shadow: 6px 4px rgba(0,0,0,0.1);
 }
+
 
 /* ==================================================
    MOBILE VIEW (≤ 768px)
@@ -300,6 +306,27 @@ footer {
   #submenu-toggle:checked ~ .menu-main { display: none; }
   #submenu-toggle:checked ~ .menu-sub { display: flex; }
 
+  /* Tampilan Label Pada Submenu (Mode Terang/Gelap) */
+  .mode-light, .mode-dark {
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+  }
+  .mode-light:hover, .mode-dark:hover {
+    background: #ddd;
+  }
+  /* Toggle Mode Terang/Gelap */
+  #light-display:checked ~ .mode-light { background: rgba(255,255,255,0.5); }
+  #light-display:checked ~ .mode-light:hover, .mode-dark:hover { background: #ddd; }
+  #dark-display:checked ~ .mode-dark { background: rgba(255,255,255,0.5); }
+  #dark-display:checked ~ .mode-dark:hover, .mode-light:hover { background: #ddd; }
+
+
   /* Ubah ke Vertikal */
   main {
     padding: 1rem;
@@ -316,3 +343,116 @@ footer {
   }
 }
 
+
+/* ==================================================
+   DARK MODE
+   ================================================== */
+/* body:has(#theme-toggle:checked, #dark-display:checked) {
+  background-image: url(assets/fancy-cushion.webp);
+}
+header:has(
+  #theme-toggle:checked, #dark-display:checked) {
+  background: #715A5A;
+  color: black;
+}
+.identity-web .logo-icon:has(
+  #theme-toggle:checked, #dark-display:checked) {
+  background-image: url(assets/ikon.png);
+}
+.navigation nav a:has(
+  #theme-toggle:checked, #dark-display:checked) {
+  color: black;
+}
+
+.navigation nav a:hover:has(#theme-toggle:checked, #dark-display:checked) {
+  background: rgba(0,0,0,0.3);
+}
+
+.navigation nav a.active:has(#theme-toggle:checked, #dark-display:checked) {
+  background: rgba(0,0,0,0.5);
+}
+
+/* Ikon Sun */
+/*.sun.icon:has(#theme-toggle:checked, #dark-display:checked) {
+color: black;
+}
+/* Ikon Moon */
+/*.theme-icon .moon-solid.icon:has(#theme-toggle:checked, #dark-display:checked) {
+  color: #f9f9f9;
+}
+.theme-icon .moon-solid.icon:before:has(#theme-toggle:checked, #dark-display:checked) {
+  background-color: #715A5A;
+}
+
+/* Main horizontal (desktop) */
+/*.card:has(#theme-toggle:checked, #dark-display:checked) {
+  background: #e2e2e2ba;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* -- Halaman Data -- */
+/*.table td:has(#theme-toggle:checked, #dark-display:checked) {
+  border: 1.5px solid rgba(0,0,0,0.5);
+}
+.table td:first-child:has(#theme-toggle:checked, #dark-display:checked) {
+  background: rgba(0,0,0,0.2);
+}
+/* Footer */
+/*footer:has(#theme-toggle:checked, #dark-display:checked) {
+  background: #715A5A;
+  color: black;
+  box-shadow: 6px 4px rgba(0,0,0,0.1);
+}
+
+
+@media (max-width: 768px) {
+  /* Bentuk Hamburger-Menu */
+  /*.menu-btn span:has(#theme-toggle:checked, #dark-display:checked) {
+      background: #f1f1f1;
+    }
+
+  /* Tampilan Main-Menu */
+  /*.navigation nav:has(#theme-toggle:checked, #dark-display:checked) {
+  background: #715A5A;
+  }
+  .navigation nav a:has(#theme-toggle:checked, #dark-display:checked) {
+    color: black;
+  }
+  .navigation nav a:hover:has(#theme-toggle:checked, #dark-display:checked) {
+    background: #ddd;
+  }
+
+  /* Submenu */
+  /*.menu-sub:has(#theme-toggle:checked, #dark-display:checked) {
+    background: #715A5A;
+  }
+
+  /* Tombol submenu & back */
+  /*.submenu-btn:has(#theme-toggle:checked, #dark-display:checked), .back-btn:has(#theme-toggle:checked, #dark-display:checked) {
+    color: black;
+  }
+
+  .submenu-btn:hover:has(#theme-toggle:checked, #dark-display:checked), .back-btn:hover:has(#theme-toggle:checked, #dark-display:checked) {
+    background: #ddd;
+  }
+
+  /* Tampilan Link Pada Submenu */
+  /*.menu-sub a:has(#theme-toggle:checked, #dark-display:checked) {
+    color: black;
+  }
+  .menu-sub a:hover:has(#theme-toggle:checked, #dark-display:checked) {
+    background: rgba(0,0,0,0.3);
+  }
+
+  /* Tampilan Label Pada Submenu (Mode Terang/Gelap) */
+  /*.mode-light:has(#theme-toggle:checked, #dark-display:checked), .mode-dark:has(#theme-toggle:checked, #dark-display:checked) {
+    color: black;
+  }
+  .mode-light:hover:has(#theme-toggle:checked, #dark-display:checked), .mode-dark:hover:has(#theme-toggle:checked, #dark-display:checked) {
+    background: #ddd;
+  }
+  /* Toggle Mode Gelap */
+  /*#dark-display:checked ~ .mode-dark { background: rgba(0,0,0,0.5); }
+  #dark-display:checked ~ .mode-dark:hover, .mode-light:hover { background: #ddd; }
+} */
