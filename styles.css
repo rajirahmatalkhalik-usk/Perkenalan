@@ -1,0 +1,317 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+/* @import url('https://fonts.googleapis.com/css2?family=Oswald'); */
+
+/* Layout dasar */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url(assets/leaves.webp);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #25649b;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.identity-web {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.identity-web .logo-icon {
+  width: 40px;
+  height: 40px;
+  background-image: url(/assets/ikon.png);
+  background-size: cover;
+  border-radius: 6px;
+}
+/* .identity-web h1 {
+  font-family: Oswald, sans-serif;
+} */
+
+/* === Navigasi (desktop default) === */
+.navigation{
+  display: flex;
+  gap: 1rem;
+}
+
+.navigation nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.navigation nav a:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.navigation nav a.active {
+  background: rgba(255,255,255,0.5);
+}
+
+/* Sembunyikan checkbox hack dan submenu di desktop */
+#menu-toggle, #theme-toggle, #submenu-toggle, .menu-sub, .submenu-btn, .back-btn {
+  display: none;
+}
+.theme-icon {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Bentuk Theme-Icon */
+.theme-icon .icon {
+  font-size: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.4s ease;
+}
+
+/* Ikon Sun */
+.sun.icon {
+color: white;
+margin-left: 8px;
+margin-top: 4px;
+width: 10px;   /* kecil */
+height: 10px;  /* kecil */
+border-radius: 50%;
+border: 1.5px solid currentColor;
+position: relative;
+box-shadow: /*penyesuaian SINAR*/
+  -8px 0 0 -3.5px currentColor, 8px 0 0 -3.5px currentColor,
+  0 -8px 0 -3.5px currentColor, 0  8px 0 -3.5px currentColor,
+  -6px -6px 0 -3.5px currentColor, -6px  6px 0 -3.5px currentColor,
+  6px -6px 0 -3.5px currentColor, 6px  6px 0 -3.5px currentColor;
+}
+/* Ikon Moon */
+.theme-icon .moon-solid.icon {
+  color: #f9f9f9;
+  margin-left: 6px;
+  margin-top: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: currentColor;
+  opacity: 0;
+  transform: rotate(-180deg) scale(0.5);
+}
+.theme-icon .moon-solid.icon:before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 3px;
+  width: 8px;
+  height: 10px;
+  background-color: #25649b;
+  border-radius: 5px 0 0 5px;
+}
+
+/* Animasi Sun -> Moon */
+#theme-toggle:checked + label .sun {
+  opacity: 0;
+  transform: rotate(180deg) scale(0.5);
+}
+#theme-toggle:checked + label .moon-solid {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* Main horizontal (desktop) */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.card {
+  display: flex;
+  gap: 2rem;
+  background: #e2e2e2ba;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.photo {text-align: center;}
+.photo img {
+  width: 150px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.desc {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+}
+
+/* -- Halaman Data -- */
+.table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.table td {
+  border: 1.5px solid rgba(0,0,0,0.5);
+  padding: 8px 12px;
+}
+.table td:first-child {
+  font-weight: bold;
+  background: rgba(0,0,0,0.2);
+}
+
+.list ul {
+  list-style: square;
+  padding-left: 1.2rem;
+  line-height: 1.8;
+}
+
+/* Footer */
+footer {
+  background: #25649b;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 6px 4px rgba(0,0,0,0.1);
+}
+
+/* ==================================================
+   MOBILE VIEW (≤ 768px)
+   ================================================== */
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+  }
+
+  /* Area-Tombol */
+  .menu-btn {
+      display: inline-block;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      position: relative;
+  }
+  /* Bentuk Hamburger-Menu */
+  .menu-btn span {
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: #f1f1f1;
+      border-radius: 2px;
+      left: 0;
+      transition: all 0.3s ease;
+    }
+  .menu-btn span:nth-child(1) { top: 0; }
+  .menu-btn span:nth-child(2) { top: 9px; }
+  .menu-btn span:nth-child(3) { top: 18px; }
+
+  /* Animasi ke ikon X */
+  #menu-toggle:checked + .menu-btn span:nth-child(1) {transform: rotate(45deg); top: 9px;}
+  #menu-toggle:checked + .menu-btn span:nth-child(2) {opacity: 0;}
+  #menu-toggle:checked + .menu-btn span:nth-child(3) {transform: rotate(-45deg); top: 9px;}
+
+  /* Sembunyikan checkbox hack di desktop */
+  .theme-icon { display: none; }
+
+  /* Tampilan Main-Menu */
+  .navigation nav {
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  margin-top: 6px;
+  background: #25649b;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 180px;
+  }
+  .navigation nav a {
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: white;
+  }
+  .navigation nav a:hover {
+    background: #ddd;
+  }
+
+  /* Tampilkan Main-Menu kalau checkbox dicentang */
+  #menu-toggle:checked ~ nav { display: block; }
+
+  /* Submenu */
+  .menu-sub {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    margin-top: 6px;
+    background: #25649b;
+    padding: 1rem;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 180px;
+  }
+
+  /* Tombol submenu & back */
+  .submenu-btn, .back-btn {
+    cursor: pointer;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    color: white;
+    display: block;
+  }
+
+  .submenu-btn:hover, .back-btn:hover {
+    background: #ddd;
+  }
+
+  /* Tampilan Link Pada Submenu */
+  .menu-sub a {
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+  }
+  .menu-sub a:hover {
+    background: rgba(255,255,255,0.3);
+  }
+
+  /* NonAktifkan Main-Menu dan Aktifkan Sub-Menu */
+  #submenu-toggle { display: none; }
+  #submenu-toggle:checked ~ .menu-main { display: none; }
+  #submenu-toggle:checked ~ .menu-sub { display: flex; }
+
+  /* Ubah ke Vertikal */
+  main {
+    padding: 1rem;
+  }
+  .card {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+  }
+  .desc {
+    max-width: 100%;
+    text-align: center;
+  }
+}

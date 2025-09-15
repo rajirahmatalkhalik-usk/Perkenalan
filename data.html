@@ -8,31 +8,51 @@
     <meta name="description" content="Tugas Pertama pada Mata Kuliah Pemrograman Berbasis Web">
     <meta name="keywords" content="Html dan CSS">
 
-    <link rel="icon" type="image/x-icon" href="/assets/ikon.png">
-    <title>Pengantar</title>
+    <link rel="icon" type="image/x-icon" href="../assets/ikon.png">
+    <title>Perkenalan</title>
 
-    <link rel="stylesheet" href="/styles/style1.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
   <header>
+    <!-- Key-Part -->
     <section class="identity-web">
         <a class="logo-icon" href="\"></a>
         <h1>Perkenalan</h1>
     </section>
 
     <section class="navigation">
-        <!-- checkbox hack -->
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="menu-btn">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
+      <!-- Hamburger-Menu -->
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
 
-        <nav>
+      <!-- Navigation-Links -->
+      <nav class="menu-main">
         <a href="index.html">Profil</a>
         <a href="data.html" class="active">Data</a>
-        </nav>
+
+        <!-- Main-Menu -->
+        <input type="checkbox" id="submenu-toggle">
+        <label for="submenu-toggle" class="submenu-btn">Tampilan ▸</label>
+        <!-- Sub-Menu -->
+        <div class="menu-sub">
+          <label for="submenu-toggle" class="back-btn">◂ Back</label>
+          <a href="#" class="active mode-light">Terang</a>
+          <a href="#" class="mode-dark">Gelap</a>
+        </div>
+
+        <!-- Display-Theme -->
+        <input type="checkbox" id="theme-toggle">
+        <label for="theme-toggle" class="theme-icon">
+          <div class="icon sun"></div>
+          <div class="icon moon-solid"></div>
+        </label>
+      </nav>
     </section>
   </header>
 
